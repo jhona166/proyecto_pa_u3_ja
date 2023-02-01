@@ -29,8 +29,44 @@ public class ProyectoPaU3JaApplication implements CommandLineRunner {
 //		estudiante.setCedula("1727501510");
 //		estudiante.setCiudad("Quito");
 //		this.estudianteService.crear(estudiante);
-		Estudiante estudiante1=this.estudianteService.buscarNombre("Jhonatan");
+//		Estudiante estudiante =new Estudiante();
+//		estudiante.setNombre("Grace");
+//		estudiante.setApellido("Analuiza");
+//		estudiante.setCedula("1727501511");
+//		estudiante.setGenero("Femenino");
+//		estudiante.setCiudad("Guayaquil");
+//		this.estudianteService.crear(estudiante);
+	
+//		Estudiante estudiante2 =new Estudiante();
+//		estudiante2.setNombre("Carlos");
+//		estudiante2.setApellido("Ortiz");
+//		estudiante2.setCedula("1727501516");
+//		estudiante2.setGenero("Masculino");
+//		estudiante2.setCiudad("Quito");
+//		this.estudianteService.crear(estudiante2);
+//		
+		Estudiante estudiante1=this.estudianteService.buscarApellido("Ortiz");
+		System.out.println("1. Consultar un Estudiante por apellido");
 		System.out.println(estudiante1);
+		
+		Estudiante estudiante2=this.estudianteService.buscarPorGenero("Femenino");
+		System.out.println("2. Consultar un Estudiante por genero");
+		System.out.println(estudiante2);
+
+		Estudiante estudiante3=this.estudianteService.buscarPorCedula("1727501510");
+		System.out.println("3. Consultar un Estudiante por cedula");
+		System.out.println(estudiante3);
+		
+		Estudiante estudiante4=this.estudianteService.buscarPorCiudad("Manta");
+		System.out.println("4. Consultar un Estudiante por ciudad");
+		System.out.println(estudiante4);
+		
+		
+		
+		
+		
+     
+	
 	}
 
 }
