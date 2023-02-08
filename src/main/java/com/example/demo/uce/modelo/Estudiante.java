@@ -1,24 +1,36 @@
 package com.example.demo.uce.modelo;
 
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
-import org.hibernate.annotations.NamedNativeQuery;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedNativeQueries;
+import jakarta.persistence.NamedNativeQuery;
+import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="estudiante")
-@NamedQuery(name="Estudiante.buscarPorNombre",query="select e from Estudiante e where e.nombre=:datoNombre")//nombre de la entidad,Nombre representativo del JPQL
-@NamedNativeQuery(name="Estudiante.buscarPorNombreNative",query="select * from Estudiante where estu_nombre=:datoNombre")
+
+@NamedQueries({
+	@NamedQuery(name="Estudiante.buscarPorNombre",query="select e from Estudiante e where e.nombre=:datoNombre"),//nombre de la entidad,Nombre representativo del JPQL
+	@NamedQuery(name="Estudiante.buscarPorNombre1",query="select e from Estudiante e where e.nombre=:datoNombre"),//nombre de la entidad,Nombre representativo del JPQL
+	@NamedQuery(name="Estudiante.buscarPorNombre2",query="select e from Estudiante e where e.nombre=:datoNombre")//nombre de la entidad,Nombre representativo del JPQL
+	
+})
+
+@NamedNativeQueries({
+	@NamedNativeQuery(name="Estudiante.buscarPorNombreNative",query="select * from Estudiante where estu_nombre=:datoNombre",resultClass = Estudiante.class),
+	@NamedNativeQuery(name="Estudiante.buscarPorNombreNative1",query="select * from Estudiante where estu_nombre=:datoNombre",resultClass = Estudiante.class),
+	@NamedNativeQuery(name="Estudiante.buscarPorNombreNative2",query="select * from Estudiante where estu_nombre=:datoNombre",resultClass = Estudiante.class)
+	})
+
 public class Estudiante {
 
 	@Id
