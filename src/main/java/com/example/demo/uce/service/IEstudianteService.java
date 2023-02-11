@@ -6,6 +6,11 @@ import com.example.demo.uce.modelo.Estudiante;
 import com.example.demo.uce.modelo.dto.EstudianteDTO;
 
 public interface IEstudianteService {
+	public Estudiante buscar(Integer id);
+	public void borrar(Integer id);
+	
+	
+	
 	public Estudiante buscarNombre(String nombre);
 	public Estudiante buscarApellido(String apellido);
 	public void crear(Estudiante estudiante);
@@ -24,4 +29,8 @@ public interface IEstudianteService {
 	public EstudianteDTO buscarPorNombreTypedQueryDTO(String nombre);
 	public Estudiante buscarPorNombreCriteria(String nombre);
 	public List<Estudiante> buscarPorNombreCriteriaAndOr(String nombre,String apellido, String genero);
+	
+	
+	public int eliminarPorApellido(String apellido);
+	public int actualizarPorApellido(String apellido,String nombre);
 }

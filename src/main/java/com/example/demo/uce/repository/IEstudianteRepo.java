@@ -2,10 +2,15 @@ package com.example.demo.uce.repository;
 
 import java.util.List;
 
+
 import com.example.demo.uce.modelo.Estudiante;
 import com.example.demo.uce.modelo.dto.EstudianteDTO;
 
 public interface IEstudianteRepo {
+	public Estudiante buscar(Integer id);
+	public void borrar(Integer id);
+	
+	
 	public Estudiante buscarPorNombreQuery(String nombre);
 	public Estudiante buscarPorApellidoQuery(String apellido);
 	public void insertar(Estudiante estudiante);
@@ -33,5 +38,9 @@ public interface IEstudianteRepo {
 	public Estudiante buscarPorNombreQueryTypedCriteria(String nombre);
 	
 	public List<Estudiante> buscarPorNombreCriteriaAndOr(String nombre,String apellido, String genero);
+	
+	
+	public int eliminarPorApellido(String apellido);
+	public int actualizarPorApellido(String apellido,String nombre);
 	
 }

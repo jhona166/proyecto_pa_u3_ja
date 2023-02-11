@@ -80,29 +80,36 @@ public class ProyectoPaU3JaApplication implements CommandLineRunner {
 		
 		
 //		Estudiante estudiante15 =new Estudiante();
-//		estudiante15.setNombre("Areu");
-//		estudiante15.setApellido("Bernabeu");
+//		estudiante15.setNombre("Diego");
+//		estudiante15.setApellido("Zambrano");
 //		estudiante15.setCedula("1727501511");
-//		estudiante15.setCiudad("Brazil");
+//		estudiante15.setCiudad("Quito");
 //		this.estudianteService.crear(estudiante15);
-		
+		/*
 		System.out.println("Busqueda buscarPorNombreQueryList");
 //		List<Estudiante> estudiante6=this.estudianteService.buscarPorNombreQueryList("Jhonatan");
 		List<Estudiante> estudiante6=this.estudianteService.buscarPorNombreQueryList("Jhonatan");
 		
 		System.out.println(estudiante6);
-		System.out.println("Busqueda buscarPorDTO");
+		//System.out.println("Busqueda buscarPorDTO");
 //		List<Estudiante> estudiante6=this.estudianteService.buscarPorNombreQueryList("Jhonatan");
-		EstudianteDTO estudiante7=this.estudianteService.buscarPorNombreTypedQueryDTO("Areu");
+		//EstudianteDTO estudiante7=this.estudianteService.buscarPorNombreTypedQueryDTO("Areu");
 		
-		System.out.println(estudiante7);
+		//System.out.println(estudiante7);
 		
 		System.out.println("Busqueda buscarPorNombreQueryTypedCriteria");
 //		List<Estudiante> estudiante6=this.estudianteService.buscarPorNombreQueryList("Jhonatan");
 		List<Estudiante> estudiante8=this.estudianteService.buscarPorNombreCriteriaAndOr("Jhonatan","Altamirano","F");
 		
 		System.out.println(estudiante8);
+		//public int eliminarPorApellido(String apellido);
+		//public int actualizarPorApellido(String apellido,String nombre);
+		System.out.println("Eliminar por apellido");
+//		List<Estudiante> estudiante6=this.estudianteService.buscarPorNombreQueryList("Jhonatan");
+		int ea = this.estudianteService.eliminarPorApellido("Caroa");
 		
+		
+		*/
 	}
 
 }
