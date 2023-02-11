@@ -10,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.uce.modelo.Estudiante;
+import com.example.demo.uce.modelo.dto.EstudianteDTO;
 import com.example.demo.uce.service.IEstudianteService;
 
 @SpringBootApplication
@@ -25,32 +26,32 @@ public class ProyectoPaU3JaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		Estudiante estudiante =new Estudiante();
-		estudiante.setNombre("Karol");
-		estudiante.setApellido("Analuiza");
-		estudiante.setCedula("1727501511");
-		estudiante.setCiudad("Quito");
-		this.estudianteService.crear(estudiante);
-		
-		Estudiante estudiante11 =new Estudiante();
-		estudiante11.setNombre("Grace");
-		estudiante11.setApellido("Analuiza");
-		estudiante11.setCedula("1727501511");
-		estudiante11.setCiudad("Quito");
-		this.estudianteService.crear(estudiante11);
-		
-		Estudiante estudiante12 =new Estudiante();
-		estudiante12.setNombre("Grace");
-		estudiante12.setApellido("Analuiza");
-		estudiante12.setCedula("1727501511");
-		estudiante12.setCiudad("Quito");
-		this.estudianteService.crear(estudiante12);
-		
-		
-		List<Estudiante> estudiantes = new ArrayList<>();
-		estudiantes.add(estudiante);
-		estudiantes.add(estudiante11);
-		estudiantes.add(estudiante12);
+//		Estudiante estudiante =new Estudiante();
+//		estudiante.setNombre("Karol");
+//		estudiante.setApellido("Analuiza");
+//		estudiante.setCedula("1727501511");
+//		estudiante.setCiudad("Quito");
+//		this.estudianteService.crear(estudiante);
+//		
+//		Estudiante estudiante11 =new Estudiante();
+//		estudiante11.setNombre("Grace");
+//		estudiante11.setApellido("Analuiza");
+//		estudiante11.setCedula("1727501511");
+//		estudiante11.setCiudad("Quito");
+//		this.estudianteService.crear(estudiante11);
+//		
+//		Estudiante estudiante12 =new Estudiante();
+//		estudiante12.setNombre("Grace");
+//		estudiante12.setApellido("Analuiza");
+//		estudiante12.setCedula("1727501511");
+//		estudiante12.setCiudad("Quito");
+//		this.estudianteService.crear(estudiante12);
+//		
+//		
+//		List<Estudiante> estudiantes = new ArrayList<>();
+//		estudiantes.add(estudiante);
+//		estudiantes.add(estudiante11);
+//		estudiantes.add(estudiante12);
 		
 		
 		
@@ -76,11 +77,31 @@ public class ProyectoPaU3JaApplication implements CommandLineRunner {
 	//	public List<Estudiante> buscarPorNombreQueryList(String nombre);
 		//public List<Estudiante> buscarPorNombreNamedQueryList(String nombre);
 		//public List<Estudiante> buscarPorNombreNativeQueryTypedNamedList(String nombre);
+		
+		
+//		Estudiante estudiante15 =new Estudiante();
+//		estudiante15.setNombre("Areu");
+//		estudiante15.setApellido("Bernabeu");
+//		estudiante15.setCedula("1727501511");
+//		estudiante15.setCiudad("Brazil");
+//		this.estudianteService.crear(estudiante15);
+		
 		System.out.println("Busqueda buscarPorNombreQueryList");
 //		List<Estudiante> estudiante6=this.estudianteService.buscarPorNombreQueryList("Jhonatan");
 		List<Estudiante> estudiante6=this.estudianteService.buscarPorNombreQueryList("Jhonatan");
 		
 		System.out.println(estudiante6);
+		System.out.println("Busqueda buscarPorDTO");
+//		List<Estudiante> estudiante6=this.estudianteService.buscarPorNombreQueryList("Jhonatan");
+		EstudianteDTO estudiante7=this.estudianteService.buscarPorNombreTypedQueryDTO("Areu");
+		
+		System.out.println(estudiante7);
+		
+		System.out.println("Busqueda buscarPorNombreQueryTypedCriteria");
+//		List<Estudiante> estudiante6=this.estudianteService.buscarPorNombreQueryList("Jhonatan");
+		List<Estudiante> estudiante8=this.estudianteService.buscarPorNombreCriteriaAndOr("Jhonatan","Altamirano","F");
+		
+		System.out.println(estudiante8);
 		
 	}
 

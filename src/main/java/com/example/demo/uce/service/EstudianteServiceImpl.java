@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.uce.modelo.Estudiante;
+import com.example.demo.uce.modelo.dto.EstudianteDTO;
 import com.example.demo.uce.repository.IEstudianteRepo;
 @Service
 public class EstudianteServiceImpl implements IEstudianteService{
@@ -76,6 +77,24 @@ public class EstudianteServiceImpl implements IEstudianteService{
 	public List<Estudiante> buscarPorNombreNativeQueryTypedNamedList(String nombre) {
 		// TODO Auto-generated method stub
 		return this.iEstudianteRepo.buscarPorNombreNativeQueryTypedNamedList(nombre);
+	}
+
+	@Override
+	public EstudianteDTO buscarPorNombreTypedQueryDTO(String nombre) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteRepo.buscarPorNombreTypedQueryDTO(nombre);
+	}
+
+	@Override
+	public Estudiante buscarPorNombreCriteria(String nombre) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteRepo.buscarPorNombreQueryTypedCriteria(nombre);
+	}
+
+	@Override
+	public List<Estudiante> buscarPorNombreCriteriaAndOr(String nombre, String apellido, String genero) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteRepo.buscarPorNombreCriteriaAndOr(nombre,apellido,genero);
 	}
 
 

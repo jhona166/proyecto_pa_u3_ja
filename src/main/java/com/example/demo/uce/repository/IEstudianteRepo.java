@@ -29,5 +29,9 @@ public interface IEstudianteRepo {
 	public List<Estudiante> buscarPorNombreNativeQueryTypedNamedList(String nombre);
 	
 	
-	public EstudianteDTO buscarPorNombreNamedQueryTypedDTO(String nombre);
+	public EstudianteDTO buscarPorNombreTypedQueryDTO(String nombre);
+	public Estudiante buscarPorNombreQueryTypedCriteria(String nombre);
+	
+	public List<Estudiante> buscarPorNombreCriteriaAndOr(String nombre,String apellido, String genero);
+	
 }
