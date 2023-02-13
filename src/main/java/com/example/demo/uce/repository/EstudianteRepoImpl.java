@@ -49,7 +49,9 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 	@Override
 	public Estudiante buscarPorApellidoQuery(String apellido) {
 		// TODO Auto-generated method stub
-		return null;
+		Query jpqlQuery = this.entityManager.createQuery("select e from Estudiante e where e.apellido=:datoApellido");
+		jpqlQuery.setParameter("datoApellido", apellido);
+		return (Estudiante) jpqlQuery.getSingleResult();
 	}
 
 	@Override
@@ -212,6 +214,47 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 		query.setParameter("datoNombre", nombre);
 		query.setParameter("datoApellido", apellido);
 		
+		return query.executeUpdate();
+	}
+	
+	@Override
+	public int actualizarPorCedula(String cedula, String apellido) {
+		// TODO Auto-generated method stub
+		Query query = this.entityManager.createQuery("UPDATE Estudiante e SET e.apellido=:datoApellido WHERE e.cedula=:datoCedula");
+		query.setParameter("datoApellido", apellido);
+		query.setParameter("datoCedula", cedula);
+		
+		return query.executeUpdate();
+	
+	}
+
+	@Override
+	public int actualizarPorCiudad(String ciudad, String cedula) {
+		// TODO Auto-generated method stub
+		Query query = this.entityManager.createQuery("UPDATE Estudiante e SET e.cedula=:datoCedula WHERE e.ciudad=:datoCiudad");
+		query.setParameter("datoCedula", cedula);
+		query.setParameter("datoCiudad", ciudad);
+		
+		return query.executeUpdate();
+	}
+
+	@Override
+	public int eliminarPorCedula(String cedula) {
+		// TODO Auto-generated method stub
+		//DELETE FROM estudiante WHERE estu_apellido='Teran'
+		Query query = this.entityManager.createQuery("DELETE FROM Estudiante e WHERE e.cedula=:cedula");
+		query.setParameter("cedula", cedula);
+				
+		return query.executeUpdate();
+	}
+
+	@Override
+	public int eliminarPorCiudad(String ciudad) {
+		// TODO Auto-generated method stub
+		//DELETE FROM estudiante WHERE estu_apellido='Teran'
+		Query query = this.entityManager.createQuery("DELETE FROM Estudiante e WHERE e.ciudad=:ciudad");
+		query.setParameter("ciudad", ciudad);
+				
 		return query.executeUpdate();
 	}
 	

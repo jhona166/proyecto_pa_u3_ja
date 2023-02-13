@@ -121,6 +121,30 @@ public class EstudianteServiceImpl implements IEstudianteService{
 		this.iEstudianteRepo.borrar(id);
 	}
 
+	@Override
+	public int actualizarPorCedula(String cedula, String apellido) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteRepo.actualizarPorCedula(cedula,apellido);
+	}
+
+	@Override
+	public int actualizarPorCiudad(String ciudad, String cedula) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteRepo.actualizarPorCiudad(ciudad,cedula);
+	}
+
+	@Override
+	public int eliminarPorCedula(String cedula) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteRepo.eliminarPorCedula(cedula);
+	}
+
+	@Override
+	public int eliminarPorCiudad(String ciudad) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteRepo.eliminarPorCiudad(ciudad);
+	}
+
 
 
 }

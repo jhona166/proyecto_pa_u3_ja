@@ -43,4 +43,11 @@ public interface IEstudianteRepo {
 	public int eliminarPorApellido(String apellido);
 	public int actualizarPorApellido(String apellido,String nombre);
 	
+	//----------------------------Tarea15-----------------
+	//Update
+	public int actualizarPorCedula(String cedula,String apellido);
+	public int actualizarPorCiudad(String ciudad,String cedula);
+	//Delete     
+	public int eliminarPorCedula(String cedula);
+	public int eliminarPorCiudad(String ciudad);
 }
