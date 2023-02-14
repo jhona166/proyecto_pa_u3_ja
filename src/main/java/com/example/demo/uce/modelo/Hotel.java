@@ -36,7 +36,7 @@ public class Hotel {
 	public void setNombrePrimero(String nombrePrimero) {
 		this.nombrePrimero = nombrePrimero;
 	}
-	@OneToMany(mappedBy = "hotel",cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "hotel",cascade=CascadeType.ALL,fetch = FetchType.EAGER)//Lazy por defecto
 	//@OneToMany(mappedBy = "hotel")
 	private List<Habitacion> habitaciones;
 	
@@ -66,4 +66,11 @@ public class Hotel {
 	public void setHabitaciones(List<Habitacion> habitaciones) {
 		this.habitaciones = habitaciones;
 	}
+	@Override
+	public String toString() {
+		return "Hotel [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", nombrePrimero="
+				+ nombrePrimero + ", habitaciones=" + habitaciones + "]";
+	}
+
+	
 }

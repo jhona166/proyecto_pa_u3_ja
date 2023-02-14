@@ -54,6 +54,7 @@ public class Habitacion {
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
+	
 
 	
 }

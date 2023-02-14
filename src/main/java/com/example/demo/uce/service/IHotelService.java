@@ -1,11 +1,11 @@
-package com.example.demo.uce.repository;
+package com.example.demo.uce.service;
 
 import java.util.List;
 
 import com.example.demo.uce.modelo.Hotel;
 
-public interface IHotelRepository {
-	public void insertar(Hotel hotel);
+public interface IHotelService {
+	public void crear(Hotel hotel);
 	public List<Hotel> buscarHotelInnerJoin(String tipoHabitacion);
 	public List<Hotel> buscarHotelOuterJoin(String tipoHabitacion);
 	public List<Hotel> buscarHotelOuterRightJoin(String tipoHabitacion);
