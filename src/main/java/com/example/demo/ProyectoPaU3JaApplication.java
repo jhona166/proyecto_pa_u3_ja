@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.demo.uce.modelo.Habitacion;
 import com.example.demo.uce.modelo.Hotel;
 import com.example.demo.uce.repository.HotelrepositoryImpl;
+import com.example.demo.uce.service.HabitacionServiceImpl;
 import com.example.demo.uce.service.IEstudianteService;
 import com.example.demo.uce.service.IHotelService;
 
@@ -20,7 +21,9 @@ public class ProyectoPaU3JaApplication implements CommandLineRunner {
 	@Autowired
 	private IHotelService iHotelService;
 	@Autowired
-	private HotelrepositoryImpl HotelRepository;
+	private HotelrepositoryImpl iHotelRepository;
+	@Autowired
+	private HabitacionServiceImpl habitacionServiceImpl;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU3JaApplication.class, args);
@@ -114,6 +117,7 @@ public class ProyectoPaU3JaApplication implements CommandLineRunner {
 		
 		*/
 //		Hotel hotel = new Hotel();
+//		hotel.setId(4);
 //		hotel.setNombre("Panamericano");
 //		hotel.setDireccion("La florida");
 //		hotel.setHabitaciones(null);
@@ -121,16 +125,16 @@ public class ProyectoPaU3JaApplication implements CommandLineRunner {
 //		this.iHotelService.crear(hotel);
 		
 		
-		System.out.println(this.iHotelService.buscarHotelInnerJoin("VIP"));
-		List<Hotel> lista=this.iHotelService.buscarHotelInnerJoin("VIP");
-		for (Hotel h : lista) {
-			System.out.println(h.getNombre());
-			for (Habitacion ha : h.getHabitaciones()) {
-
-				System.out.println("LAs habi son: " +ha.getNumero());
-			}
-			System.out.println();
-		}
+//		System.out.println(this.iHotelService.buscarHotelInnerJoin("VIP"));
+//		List<Hotel> lista=this.iHotelService.buscarHotelInnerJoin("VIP");
+//		for (Hotel h : lista) {
+//			System.out.println(h.getNombre());
+//			for (Habitacion ha : h.getHabitaciones()) {
+//
+//				System.out.println("LAs habi son: " +ha.getNumero());
+//			}
+//			System.out.println();
+//		}
 
 		
 
@@ -156,7 +160,60 @@ public class ProyectoPaU3JaApplication implements CommandLineRunner {
 //			System.out.println();
 //		}
 		
+//		System.out.println(this.iHotelService.buscarHotelFetchJoin("VIP"));
+//		List<Hotel> lista2=this.iHotelService.buscarHotelFetchJoin("VIP");
+//		for (Hotel h : lista2) {
+//			System.out.println(h.getNombre());
+//			for (Habitacion ha : h.getHabitaciones()) {
+//
+//				System.out.println("LAs habi son: " +ha.getNumero());
+//			}
+//			System.out.println();
+//		}
+
+//		Habitacion habi = new Habitacion();
+//		habi.setId(8);
+//		habi.setNumero("A3");
+//		habi.setTipo("VIP");
+//		
+		//List<Hotel> lista = this.iHotelRepository
 		
-	}
+		//LEFT
+		List<Hotel> lista = this.iHotelRepository.buscarHotelOuterLeftJoin();
+		for(Hotel h : lista) {
+			System.out.println(h.getNombre());
+//			for (Habitacion ha : h.getHabitaciones()) {
+//				System.out.println(ha.getNumero());
+//				
+//			}
+		}
+
+List<Habitacion> listaH= this.habitacionServiceImpl.buscarHotelOuterLeftJoin();
+
+//BAjo demanda
+for (Habitacion ha : listaH) {
+	System.out.println(ha!=null? ha.getNumero():null);
+}
+System.out.println("RIGHT");
+//RIGTH
+List<Hotel> listaR = this.iHotelRepository.buscarHotelOuterRightJoin();
+for(Hotel h : listaR) {
+	System.out.println(h!=null?h.getNombre():null);
+//	for (Habitacion ha : h.getHabitaciones()) {
+//		System.out.println(ha.getNumero());
+//		
+//	}
+}
+List<Habitacion> listaR1= this.habitacionServiceImpl.buscarHotelOuterRightJoin();
+
+//BAjo demanda
+for (Habitacion ha : listaR1) {
+	System.out.println(ha!=null? ha.getNumero():null);
+}
+
+
+
+
+	}		
 
 }

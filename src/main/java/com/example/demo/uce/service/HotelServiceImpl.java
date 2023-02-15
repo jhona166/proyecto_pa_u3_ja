@@ -40,13 +40,19 @@ public class HotelServiceImpl implements IHotelService {
 	@Override
 	public List<Hotel> buscarHotelOuterFullOuterJoin(String tipoHabitacion) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.iHotelRepository.buscarHotelOuterFullOuterJoin(tipoHabitacion);
 	}
 
 	@Override
 	public void crear(Hotel hotel) {
 		// TODO Auto-generated method stub
 		this.iHotelRepository.insertar(hotel);
+	}
+
+	@Override
+	public List<Hotel> buscarHotelFetchJoin(String tipoHabitacion) {
+		// TODO Auto-generated method stub
+		return this.iHotelRepository.buscarHotelFetchJoin(tipoHabitacion);
 	}
 
 }
